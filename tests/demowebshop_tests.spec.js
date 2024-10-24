@@ -47,7 +47,7 @@ test.describe("Menus and sorting tests", () => {
     //     await apparelShoesPage.selectDropdownOption()
     // });
 
-    test("Verify that it is possible to change number of items on the page", async ({ apparelShoesPage }) => {
+    test("Verify that it is possible to change number of items on the page", async ({ page, apparelShoesPage }) => {
         const productsPerPage = [4, 8, 12];
         let numberOfProducts;
         await apparelShoesPage.open();
@@ -85,7 +85,7 @@ test.describe("Adding and removing products", () => {
 
 test.describe("Checkout flow", () => {
 
-    test("Verify that it is possible to complete checkout", async ({ page, loginPage, apparelShoesPage, productPage, cartPage, checkoutPage }) => {
+    test("Verify that it is possible to complete checkout", async ({ loginPage, apparelShoesPage, productPage, cartPage, checkoutPage }) => {
         await loginPage.open();
         await loginPage.loginUser(email, password);
         await apparelShoesPage.open();

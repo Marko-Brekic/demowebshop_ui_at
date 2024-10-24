@@ -39,7 +39,7 @@ export class ApparelShoesPage extends BasePage {
 
     async displayProductsPerPage(option) {
         await this.page.locator(this.productsDisplayDropdown).selectOption(option.toString());
-        await this.page.waitForLoadState("networkidle");
+        await this.page.waitForTimeout(500);
         await this.page.waitForSelector(this.productTiles);
     }
 
