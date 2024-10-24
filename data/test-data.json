@@ -1,0 +1,19 @@
+{
+    "credentials": {
+        "testEmail": "testusermb@fakemail.com",
+        "testPassword": "pass1234"
+    },
+    "registrationConfirmationMessage": "Your registration completed",
+    "computersSubGroupTitles": ["Desktops", "Notebooks", "Accessories"],
+    "productSortingDropdownOptions": ["Position", 
+    "Name: A to Z", 
+    "Name: Z to A", 
+    "Price: Low to High", 
+    "Price: High to Low", 
+    "Created on"
+    ],
+    "billingAddressData": {
+        "country": "Serbia"
+    },
+    "orderConfirmationMessage": "Your order has been successfully processed!"
+}
