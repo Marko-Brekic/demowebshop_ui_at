@@ -40,9 +40,9 @@ test.describe("Menus and sorting tests", () => {
 
     test("Verify that it is possible to sort items (different options)", async ({ apparelShoesPage }) => {
         await apparelShoesPage.open();
-        await apparelShoesPage.selectProductDropdownSortingOption("Price: Low to High");
+        await apparelShoesPage.selectProductDropdownSortingOption(testData.productSorting.priceLowToHigh);
         const pricesLowToHigh = await apparelShoesPage.getProductPrices();
-        await apparelShoesPage.selectProductDropdownSortingOption("Price: High to Low");
+        await apparelShoesPage.selectProductDropdownSortingOption(testData.productSorting.priceHighToLow);
         const pricesHighToLow = await apparelShoesPage.getProductPrices();
         expect(pricesLowToHigh).not.toStrictEqual(pricesHighToLow);
     });

@@ -5,13 +5,10 @@
     },
     "registrationConfirmationMessage": "Your registration completed",
     "computersSubGroupTitles": ["Desktops", "Notebooks", "Accessories"],
-    "productSortingDropdownOptions": ["Position", 
-    "Name: A to Z", 
-    "Name: Z to A", 
-    "Price: Low to High", 
-    "Price: High to Low", 
-    "Created on"
-    ],
+    "productSorting": {
+        "priceLowToHigh": "Price: Low to High",
+        "priceHighToLow": "Price: High to Low"
+    },
     "billingAddressData": {
         "country": "Serbia"
     },
