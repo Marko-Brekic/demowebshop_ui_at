@@ -10,7 +10,8 @@ export class ApparelShoesPage extends BasePage {
         this.productsDisplayDropdown = "#products-pagesize";
         this.productTiles = ".product-item";
         this.productTitles = ".product-title";
-        this.addToCartButtons = ".product-box-add-to-cart-button"
+        this.addToCartButtons = ".product-box-add-to-cart-button",
+        this.productPrices = ".actual-price";
     }
 
     async open() {
@@ -18,24 +19,9 @@ export class ApparelShoesPage extends BasePage {
         await this.page.waitForLoadState("load");
     }
 
-    // async getAllProductSortingOptionValues() {
-    //     await this.page.locator(this.productSortingDropdownOption).evaluateAll(options => options.map(option => option.value));
-    // }  // not working
-
-    // async selectProductDropdownSortingOption(option) {
-    //     await this.page.locator(this.productSortingDropdown).selectOption(option);
-    // }
-
-    // async selectDropdownOption(dropdown, option) {
-    //     await this.page.selectOption(dropdown, option);
-    // }
-    // async getDropdownOptions(dropdown) {
-    //     await dropdown.locator("option").all();
-    // }
-
-    // getProductsDisplayDropdown() {
-    //     return this.page.locator(this.productsDisplayDropdown);
-    // }
+    async selectProductDropdownSortingOption(option) {
+        await this.page.locator(this.productSortingDropdown).selectOption(option);
+    }
 
     async displayProductsPerPage(option) {
         await this.page.locator(this.productsDisplayDropdown).selectOption(option.toString());
@@ -53,5 +39,12 @@ export class ApparelShoesPage extends BasePage {
 
     async selectFirstAvailableAddToCartButton() {
         await this.page.locator(this.addToCartButtons).first().click();
+    }
+
+    async getProductPrices() {
+        await this.page.waitForTimeout(500);
+        return await this.page.$$eval(this.productPrices, elements =>
+            elements.map(element => element.textContent)
+        );
     }
 }

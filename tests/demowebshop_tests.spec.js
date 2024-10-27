@@ -38,16 +38,16 @@ test.describe("Menus and sorting tests", () => {
         expect(trimmedTitles).toEqual(testData.computersSubGroupTitles);
     });
 
-    // test("Verify that it is possible to sort items (different options)", async ({ page, apparelShoesPage }) => {
-    //     await apparelShoesPage.open();
-    //     const productSortingDropdownOptions = apparelShoesPage.getAllProductSortingOptionValues();
-    //     for (const sortingOption of productSortingDropdownOptions) {
-    //         await apparelShoesPage.selectProductDropdownSortingOption(sortingOption);
-    //     }
-    //     await apparelShoesPage.selectDropdownOption()
-    // });
+    test("Verify that it is possible to sort items (different options)", async ({ apparelShoesPage }) => {
+        await apparelShoesPage.open();
+        await apparelShoesPage.selectProductDropdownSortingOption("Price: Low to High");
+        const pricesLowToHigh = await apparelShoesPage.getProductPrices();
+        await apparelShoesPage.selectProductDropdownSortingOption("Price: High to Low");
+        const pricesHighToLow = await apparelShoesPage.getProductPrices();
+        expect(pricesLowToHigh).not.toStrictEqual(pricesHighToLow);
+    });
 
-    test("Verify that it is possible to change number of items on the page", async ({ page, apparelShoesPage }) => {
+    test("Verify that it is possible to change number of items on the page", async ({ apparelShoesPage }) => {
         const productsPerPage = [4, 8, 12];
         let numberOfProducts;
         await apparelShoesPage.open();
